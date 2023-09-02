@@ -1,53 +1,24 @@
-package pe.edu.upc.catchthem.entities;
+package pe.edu.upc.catchthem.dtos;
 
-import javax.persistence.*;
+import pe.edu.upc.catchthem.entities.Entidad;
+
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "Sospechoso")
-public class Sospechoso {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SospechosoDTO {
     private int id_sospechoso;
-    @Column(name = "nombre", length = 30, nullable = false)
     private String nombre;
-    @Column(name = "alias", length = 20, nullable = false)
     private String alias;
-    @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate fecha_nacimiento;
-    @Column(name = "genero", length = 1, nullable = false)
     private String genero;
-    @Column(name = "nacionalidad", length = 20, nullable = false)
     private String nacionalidad;
-    @Column(name = "descripcion", length = 60, nullable = false)
     private String descripcion;
-    @Column(name = "historial", length = 50, nullable = false)
     private String historial;
-    @Column(name = "estado", length = 1, nullable = false)
     private String estado;
-    @Column(name = "fecha_de_registro", nullable = false)
     private LocalDate fecha_registro;
-    @ManyToOne
-    @JoinColumn(name = "id_entidad")
     private Entidad entidad;
-
-    public Sospechoso() {
-
-    }
-
-    public Sospechoso(int id_sospechoso, String nombre, String alias, LocalDate fecha_nacimiento, String genero, String nacionalidad, String descripcion, String historial, String estado, LocalDate fecha_registro, Entidad entidad) {
-        this.id_sospechoso = id_sospechoso;
-        this.nombre = nombre;
-        this.alias = alias;
-        this.fecha_nacimiento = fecha_nacimiento;
-        this.genero = genero;
-        this.nacionalidad = nacionalidad;
-        this.descripcion = descripcion;
-        this.historial = historial;
-        this.estado = estado;
-        this.fecha_registro = fecha_registro;
-        this.entidad = entidad;
-    }
 
     public int getId_sospechoso() {
         return id_sospechoso;
