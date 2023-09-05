@@ -32,12 +32,6 @@ public class SospechosoServiceImplement implements ISospechosoService {
     }
 
     @Override
-    public List<Sospechoso> findSospechosoByEntidad(Integer idEntidad) {
-        return iSospechosoRepository.findSospechosoByEntidad(idEntidad);
-    }
-
-
-    @Override
     public List<Sospechoso> findSospechosoByFecha_registro(LocalDate fecha) {
         return iSospechosoRepository.findSospechosoByFecha_registro(fecha);
     }
