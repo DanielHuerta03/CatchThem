@@ -22,9 +22,20 @@ public class SospechosoServiceImplement implements ISospechosoService {
     }
 
     @Override
-    public List<Sospechoso> findSospechosoByEntidad(Entidad entidad) {
-        return iSospechosoRepository.findSospechosoByEntidad(entidad);
+    public void delete(int idSospechoso) {
+        iSospechosoRepository.deleteById(idSospechoso);
     }
+
+    @Override
+    public Sospechoso findSospechosoById_sospechoso(Integer id) {
+        return iSospechosoRepository.findSospechosoById_sospechoso(id);
+    }
+
+    @Override
+    public List<Sospechoso> findSospechosoByEntidad(Integer idEntidad) {
+        return iSospechosoRepository.findSospechosoByEntidad(idEntidad);
+    }
+
 
     @Override
     public List<Sospechoso> findSospechosoByFecha_registro(LocalDate fecha) {
