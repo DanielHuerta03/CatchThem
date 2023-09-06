@@ -1,0 +1,12 @@
+package pe.edu.upc.catchthem.serviceInterfaces;
+
+import pe.edu.upc.catchthem.entities.Alerta;
+
+import java.util.List;
+
+public interface IAlertaService {
+
+    public void ingresar(Alerta alerta);
+    public List<Alerta> listar();
+    public void eliminar(int idAlerta);
+}
