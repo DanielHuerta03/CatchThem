@@ -19,8 +19,7 @@ public interface ISospechosoRepository extends JpaRepository<Sospechoso,Integer>
     Sospechoso findSospechosoById_sospechoso(Integer id);
 
 
-    //puede ser nuevo HU
-    //List<Sospechoso>findSospechosoByFecha_registroBetween(LocalDate fechainicio, LocalDate fechafinal);
 
+    List<Sospechoso> sospechosoPorEntidad();
 
 }

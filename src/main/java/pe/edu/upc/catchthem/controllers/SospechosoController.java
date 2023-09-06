@@ -39,6 +39,15 @@ public class SospechosoController {
         iSospechosoService.delete(id);
     }
 
+    @GetMapping
+    public List<SospechosoDTO> listar(){
+        return iSospechosoService.list().stream().map(x->{
+            ModelMapper m = new ModelMapper();
+            return m.map(x,SospechosoDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+
     @GetMapping("/id")
     public SospechosoDTO buscar_sospechoso(@PathVariable("id")Integer id){
         ModelMapper m = new ModelMapper();
