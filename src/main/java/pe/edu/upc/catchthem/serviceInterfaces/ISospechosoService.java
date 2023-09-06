@@ -4,6 +4,7 @@ import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Sospechoso;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ISospechosoService {
@@ -17,10 +18,11 @@ public interface ISospechosoService {
     public List<Sospechoso> list();
 
     //HU31: ACCEDER A INFORMACION ESPECIFICA
-    Sospechoso findSospechosoById_sospechoso(Integer id);
+    public List<Sospechoso> findSospechosoByFecharegistro(LocalDateTime fecha);
 
     //HU30: FILTRAR SOSPECHOSO POR FECHA
-    public List<Sospechoso> findSospechosoByFecha_registro(LocalDate fecha);
+    public Sospechoso findSospechosoByIdSospechoso(Integer id);
+
 
 
 }

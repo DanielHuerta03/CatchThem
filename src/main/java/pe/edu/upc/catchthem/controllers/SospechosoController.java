@@ -2,6 +2,7 @@ package pe.edu.upc.catchthem.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import pe.edu.upc.catchthem.entities.Sospechoso;
 import pe.edu.upc.catchthem.serviceinterfaces.ISospechosoService;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,21 +49,19 @@ public class SospechosoController {
         }).collect(Collectors.toList());
     }
 
-
-    @GetMapping("/id")
-    public SospechosoDTO buscar_sospechoso(@PathVariable("id")Integer id){
-        ModelMapper m = new ModelMapper();
-        SospechosoDTO s = m.map(iSospechosoService.findSospechosoById_sospechoso(id),SospechosoDTO.class);
-        return s;
-    }
-
-    @PostMapping("/buscar_fecha")
-    public List<SospechosoDTO> listar_por_fecha(@RequestBody LocalDate fecha){
-        return iSospechosoService.findSospechosoByFecha_registro(fecha).stream().map(x->{
+    @GetMapping("/buscarfecha")
+    public List<SospechosoDTO> buscarfecha(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fecha){
+        return iSospechosoService.findSospechosoByFecharegistro(fecha).stream().map(x->{
             ModelMapper m = new ModelMapper();
             return m.map(x,SospechosoDTO.class);
         }).collect(Collectors.toList());
     }
 
+    @GetMapping("/id")
+    public SospechosoDTO buscarporid(@PathVariable("id") Integer id){
+        ModelMapper m = new ModelMapper();
+        SospechosoDTO s = m.map(iSospechosoService.findSospechosoByIdSospechoso(id),SospechosoDTO.class);
+        return s;
+    }
 
 }
