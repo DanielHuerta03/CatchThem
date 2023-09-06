@@ -18,7 +18,7 @@ public class SospechosoDTO {
     private String historial;
     private String estado;
     private LocalDate fecha_registro;
-    private Entidad entidad;
+
 
     public int getId_sospechoso() {
         return id_sospechoso;
@@ -100,11 +100,5 @@ public class SospechosoDTO {
         this.fecha_registro = fecha_registro;
     }
 
-    public Entidad getEntidad() {
-        return entidad;
-    }
 
-    public void setEntidad(Entidad entidad) {
-        this.entidad = entidad;
-    }
 }
