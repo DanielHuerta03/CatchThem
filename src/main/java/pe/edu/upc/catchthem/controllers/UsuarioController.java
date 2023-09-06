@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.UsuarioDTO;
 import pe.edu.upc.catchthem.entities.Usuario;
-import pe.edu.upc.catchthem.serviceInterfaces.IUsuarioService;
+import pe.edu.upc.catchthem.serviceinterfaces.IUsuarioService;
 
 import java.util.List;
 import java.util.stream.Collectors;
