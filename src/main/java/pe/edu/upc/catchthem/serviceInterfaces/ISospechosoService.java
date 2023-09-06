@@ -14,6 +14,8 @@ public interface ISospechosoService {
 
     public void delete(int idSospechoso);
 
+    public List<Sospechoso> list();
+
     //HU31: ACCEDER A INFORMACION ESPECIFICA
     Sospechoso findSospechosoById_sospechoso(Integer id);
 

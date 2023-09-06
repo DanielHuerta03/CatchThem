@@ -27,6 +27,11 @@ public class SospechosoServiceImplement implements ISospechosoService {
     }
 
     @Override
+    public List<Sospechoso> list() {
+        return iSospechosoRepository.findAll();
+    }
+
+    @Override
     public Sospechoso findSospechosoById_sospechoso(Integer id) {
         return iSospechosoRepository.findSospechosoById_sospechoso(id);
     }
