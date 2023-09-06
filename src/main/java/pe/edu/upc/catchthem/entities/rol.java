@@ -3,7 +3,7 @@ package pe.edu.upc.catchthem.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "University")
+@Table(name = "rol")
 
 public class rol {
     @Id
