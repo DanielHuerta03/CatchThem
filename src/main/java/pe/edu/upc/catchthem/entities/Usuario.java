@@ -3,7 +3,7 @@ package pe.edu.upc.catchthem.entities;
 import javax.persistence.*;
 import java.time.LocalDate;
 @Entity
-@Table(name = "University")
+@Table(name = "usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
