@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.SospechosoDTO;
+import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Sospechoso;
 import pe.edu.upc.catchthem.serviceinterfaces.ISospechosoService;
 
@@ -62,6 +63,14 @@ public class SospechosoController {
         ModelMapper m = new ModelMapper();
         SospechosoDTO s = m.map(iSospechosoService.findSospechosoByIdSospechoso(id),SospechosoDTO.class);
         return s;
+    }
+
+    @GetMapping("/buscarEntidad")
+    public List<SospechosoDTO> buscarporentidad(@RequestBody Entidad entidad){
+        return iSospechosoService.findAllByEntidad(entidad).stream().map(x->{
+            ModelMapper m = new ModelMapper();
+            return m.map(x,SospechosoDTO.class);
+        }).collect(Collectors.toList());
     }
 
 }
