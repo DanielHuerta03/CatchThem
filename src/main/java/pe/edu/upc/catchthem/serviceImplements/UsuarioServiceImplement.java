@@ -1,10 +1,10 @@
-package pe.edu.upc.catchthem.serviceImplements;
+package pe.edu.upc.catchthem.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.catchthem.entities.Usuario;
 import pe.edu.upc.catchthem.repositories.IUsuarioRepository;
-import pe.edu.upc.catchthem.serviceInterfaces.IUsuarioService;
+import pe.edu.upc.catchthem.serviceinterfaces.IUsuarioService;
 
 import java.util.List;
 
