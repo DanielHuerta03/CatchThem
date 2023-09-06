@@ -38,4 +38,9 @@ public class SospechosoServiceImplement implements ISospechosoService {
         return iSospechosoRepository.findSospechosoByIdSospechoso(id);
     }
 
+    @Override
+    public List<Sospechoso> findAllByEntidad(Entidad entidad){
+        return iSospechosoRepository.findAllByEntidad(entidad);
+    }
+
 }

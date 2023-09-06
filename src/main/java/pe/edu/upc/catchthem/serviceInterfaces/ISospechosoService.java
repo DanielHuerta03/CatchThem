@@ -23,6 +23,7 @@ public interface ISospechosoService {
     //HU30: FILTRAR SOSPECHOSO POR FECHA
     public Sospechoso findSospechosoByIdSospechoso(Integer id);
 
+    public List<Sospechoso> findAllByEntidad(Entidad entidad);
 
 
 }
