@@ -1,4 +1,4 @@
-package pe.edu.upc.catchthem.serviceinterfaces;
+package pe.edu.upc.catchthem.serviceInterfaces;
 
 import pe.edu.upc.catchthem.entities.AntecedentePenal;
 

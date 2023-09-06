@@ -1,11 +1,11 @@
-package pe.edu.upc.catchthem.serviceimplements;
+package pe.edu.upc.catchthem.serviceImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.catchthem.entities.AntecedentePenal;
 import pe.edu.upc.catchthem.entities.Sospechoso;
 import pe.edu.upc.catchthem.repositories.IAntecedentePenalRepository;
-import pe.edu.upc.catchthem.serviceinterfaces.IAntecedentePenalService;
+import pe.edu.upc.catchthem.serviceInterfaces.IAntecedentePenalService;
 
 import java.util.List;
 @Service

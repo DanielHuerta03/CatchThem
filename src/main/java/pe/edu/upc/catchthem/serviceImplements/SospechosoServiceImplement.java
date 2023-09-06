@@ -1,11 +1,11 @@
-package pe.edu.upc.catchthem.serviceimplements;
+package pe.edu.upc.catchthem.serviceImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Sospechoso;
 import pe.edu.upc.catchthem.repositories.ISospechosoRepository;
-import pe.edu.upc.catchthem.serviceinterfaces.ISospechosoService;
+import pe.edu.upc.catchthem.serviceInterfaces.ISospechosoService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

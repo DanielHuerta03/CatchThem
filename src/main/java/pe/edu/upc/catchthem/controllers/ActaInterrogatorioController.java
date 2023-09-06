@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.ActaInterrogatorioDTO;
 import pe.edu.upc.catchthem.entities.ActasInterrogatorio;
-import pe.edu.upc.catchthem.serviceinterfaces.IActaInterrogatorioService;
+import pe.edu.upc.catchthem.serviceInterfaces.IActaInterrogatorioService;
 
 import java.util.List;
 import java.util.stream.Collectors;

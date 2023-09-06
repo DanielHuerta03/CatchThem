@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.AntecedentePenalDTO;
 import pe.edu.upc.catchthem.entities.AntecedentePenal;
-import pe.edu.upc.catchthem.serviceinterfaces.IAntecedentePenalService;
+import pe.edu.upc.catchthem.serviceInterfaces.IAntecedentePenalService;
 
 import java.util.List;
 import java.util.stream.Collectors;

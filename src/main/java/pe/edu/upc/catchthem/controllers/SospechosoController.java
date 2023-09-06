@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.SospechosoDTO;
 import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Sospechoso;
-import pe.edu.upc.catchthem.serviceinterfaces.ISospechosoService;
+import pe.edu.upc.catchthem.serviceInterfaces.ISospechosoService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
