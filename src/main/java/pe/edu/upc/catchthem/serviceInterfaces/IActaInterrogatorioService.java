@@ -1,4 +1,4 @@
-package pe.edu.upc.catchthem.serviceInterfaces;
+package pe.edu.upc.catchthem.serviceinterfaces;
 
 import pe.edu.upc.catchthem.entities.ActasInterrogatorio;
 
