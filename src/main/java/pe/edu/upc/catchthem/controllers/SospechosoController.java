@@ -37,7 +37,7 @@ public class SospechosoController {
         iSospechosoService.insert(ap);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public void  delete(@PathVariable("id") Integer id){
         iSospechosoService.delete(id);
     }
@@ -50,22 +50,23 @@ public class SospechosoController {
         }).collect(Collectors.toList());
     }
 
-    @GetMapping("/buscarfecha")
-    public List<SospechosoDTO> buscarfecha(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fecha){
-        return iSospechosoService.findSospechosoByFecharegistro(fecha).stream().map(x->{
+    @PostMapping("/buscarfecha")
+    public List<SospechosoDTO> buscarfecha(@RequestParam String fecha){
+        LocalDate localDate = LocalDate.parse(fecha);
+        return iSospechosoService.findSospechosoByFecharegistro(localDate).stream().map(x->{
             ModelMapper m = new ModelMapper();
             return m.map(x,SospechosoDTO.class);
         }).collect(Collectors.toList());
     }
 
     @GetMapping("/id")
-    public SospechosoDTO buscarporid(@PathVariable("id") Integer id){
+    public SospechosoDTO buscarporid(@RequestParam("id") Integer id){
         ModelMapper m = new ModelMapper();
         SospechosoDTO s = m.map(iSospechosoService.findSospechosoByIdSospechoso(id),SospechosoDTO.class);
         return s;
     }
 
-    @GetMapping("/buscarEntidad")
+    @PostMapping("/buscarEntidad")
     public List<SospechosoDTO> buscarporentidad(@RequestBody Entidad entidad){
         return iSospechosoService.findAllByEntidad(entidad).stream().map(x->{
             ModelMapper m = new ModelMapper();
