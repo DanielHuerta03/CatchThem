@@ -7,13 +7,13 @@ import javax.persistence.*;
 public class Entidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_entidad;
+    private int idEntidad;
     @Column(name = "nombre",length = 30,nullable = false)
     private String nombre;
     @Column(name = "direccion",length = 30,nullable = false)
     private String direccion;
     @Column(name = "telefono",length = 9,nullable = false)
-    private char telefono;
+    private String telefono;
 
     @ManyToOne
     @JoinColumn(name = "id_tipo")
@@ -22,20 +22,20 @@ public class Entidad {
     public Entidad() {
     }
 
-    public Entidad(int id_entidad, String nombre, String direccion, char telefono, TipoEntidad tipoEntidad) {
-        this.id_entidad = id_entidad;
+    public Entidad(int idEntidad, String nombre, String direccion, String telefono, TipoEntidad tipoEntidad) {
+        this.idEntidad = idEntidad;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.tipoEntidad = tipoEntidad;
     }
 
-    public int getId_entidad() {
-        return id_entidad;
+    public int getIdEntidad() {
+        return idEntidad;
     }
 
-    public void setId_entidad(int id_entidad) {
-        this.id_entidad = id_entidad;
+    public void setIdEntidad(int idEntidad) {
+        this.idEntidad = idEntidad;
     }
 
     public String getNombre() {
@@ -54,11 +54,11 @@ public class Entidad {
         this.direccion = direccion;
     }
 
-    public char getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(char telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
