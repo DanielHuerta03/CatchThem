@@ -29,7 +29,7 @@ public class SospechosoServiceImplement implements ISospechosoService {
     }
 
     @Override
-    public List<Sospechoso> findSospechosoByFecharegistro(LocalDateTime fecha){
+    public List<Sospechoso> findSospechosoByFecharegistro(LocalDate fecha){
         return iSospechosoRepository.findSospechosoByFecharegistro(fecha);
     }
 
