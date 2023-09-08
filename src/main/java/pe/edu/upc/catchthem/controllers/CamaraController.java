@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.CamaraDTO;
 import pe.edu.upc.catchthem.entities.Camara;
+import pe.edu.upc.catchthem.serviceInterfaces.ICamaraService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
  @RequestMapping("/camara")
  public class CamaraController {
         @Autowired
-        private pe.edu.upc.catchthem.serviceinterfaces.ICamaraService cS;
+        private ICamaraService cS;
 
         @PostMapping
         public void registrar(@RequestBody CamaraDTO camaraDTO){

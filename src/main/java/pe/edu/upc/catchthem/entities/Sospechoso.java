@@ -8,14 +8,14 @@ import java.time.LocalDate;
 public class Sospechoso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_sospechoso;
+    private int idSospechoso;
     @Column(name = "nombre", length = 30, nullable = false)
     private String nombre;
-    @Column(name = "alias", length = 20, nullable = false)
+    @Column(name = "alias", length = 20, nullable = true)
     private String alias;
     @Column(name = "fecha_nacimiento", nullable = false)
-    private LocalDate fecha_nacimiento;
-    @Column(name = "genero", length = 1, nullable = false)
+    private LocalDate nacimiento;
+    @Column(name = "genero", length = 10, nullable = false)
     private String genero;
     @Column(name = "nacionalidad", length = 20, nullable = false)
     private String nacionalidad;
@@ -23,10 +23,10 @@ public class Sospechoso {
     private String descripcion;
     @Column(name = "historial", length = 50, nullable = false)
     private String historial;
-    @Column(name = "estado", length = 1, nullable = false)
+    @Column(name = "estado", length = 15, nullable = false)
     private String estado;
-    @Column(name = "fecha_de_registro", nullable = false)
-    private LocalDate fecha_registro;
+    @Column(name = "fecha_registro", nullable = false)
+    private LocalDate fecharegistro;
     @ManyToOne
     @JoinColumn(name = "id_entidad")
     private Entidad entidad;
@@ -35,26 +35,26 @@ public class Sospechoso {
 
     }
 
-    public Sospechoso(int id_sospechoso, String nombre, String alias, LocalDate fecha_nacimiento, String genero, String nacionalidad, String descripcion, String historial, String estado, LocalDate fecha_registro, Entidad entidad) {
-        this.id_sospechoso = id_sospechoso;
+    public Sospechoso(int idSospechoso, String nombre, String alias, LocalDate nacimiento, String genero, String nacionalidad, String descripcion, String historial, String estado, LocalDate fecharegistro, Entidad entidad) {
+        this.idSospechoso= idSospechoso;
         this.nombre = nombre;
         this.alias = alias;
-        this.fecha_nacimiento = fecha_nacimiento;
+        this.nacimiento = nacimiento;
         this.genero = genero;
         this.nacionalidad = nacionalidad;
         this.descripcion = descripcion;
         this.historial = historial;
         this.estado = estado;
-        this.fecha_registro = fecha_registro;
+        this.fecharegistro = fecharegistro;
         this.entidad = entidad;
     }
 
-    public int getId_sospechoso() {
-        return id_sospechoso;
+    public int getIdSospechoso() {
+        return idSospechoso;
     }
 
-    public void setId_sospechoso(int id_sospechoso) {
-        this.id_sospechoso = id_sospechoso;
+    public void setId_sospechoso(int idSospechoso) {
+        this.idSospechoso = idSospechoso;
     }
 
     public String getNombre() {
@@ -73,12 +73,12 @@ public class Sospechoso {
         this.alias = alias;
     }
 
-    public LocalDate getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public LocalDate getNacimiento() {
+        return nacimiento;
     }
 
-    public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setNacimiento(LocalDate nacimiento) {
+        this.nacimiento = nacimiento;
     }
 
     public String getGenero() {
@@ -121,12 +121,12 @@ public class Sospechoso {
         this.estado = estado;
     }
 
-    public LocalDate getFecha_registro() {
-        return fecha_registro;
+    public LocalDate getFecharegistro() {
+        return fecharegistro;
     }
 
-    public void setFecha_registro(LocalDate fecha_registro) {
-        this.fecha_registro = fecha_registro;
+    public void setFecharegistro(LocalDate fecharegistro) {
+        this.fecharegistro = fecharegistro;
     }
 
     public Entidad getEntidad() {

@@ -2,20 +2,20 @@ package pe.edu.upc.catchthem.dtos;
 
 import pe.edu.upc.catchthem.entities.TipoEntidad;
 
-public class EntidadDTO {
 
-    private int id_entidad;
+public class EntidadDTO {
+    private int idEntidad;
     private String nombre;
     private String direccion;
     private String telefono;
     private TipoEntidad tipoEntidad;
 
-    public int getId_entidad() {
-        return id_entidad;
+    public int getIdEntidad() {
+        return idEntidad;
     }
 
-    public void setId_entidad(int id_entidad) {
-        this.id_entidad = id_entidad;
+    public void setIdEntidad(int idEntidad) {
+        this.idEntidad = idEntidad;
     }
 
     public String getNombre() {

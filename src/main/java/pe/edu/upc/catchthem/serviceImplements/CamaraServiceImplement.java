@@ -1,9 +1,9 @@
-package pe.edu.upc.catchthem.serviceimplements;
+package pe.edu.upc.catchthem.serviceImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.catchthem.entities.Camara;
-import pe.edu.upc.catchthem.serviceinterfaces.ICamaraService;
+import pe.edu.upc.catchthem.serviceInterfaces.ICamaraService;
 import pe.edu.upc.catchthem.repositories.ICamaraRepository;
 
 import java.util.List;

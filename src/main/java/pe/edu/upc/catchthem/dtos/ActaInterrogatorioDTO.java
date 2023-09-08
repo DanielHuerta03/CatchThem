@@ -1,7 +1,7 @@
 package pe.edu.upc.catchthem.dtos;
 
 import pe.edu.upc.catchthem.entities.Sospechoso;
-import pe.edu.upc.catchthem.entities.Users;
+import pe.edu.upc.catchthem.entities.Usuario;
 
 import java.time.LocalDate;
 
@@ -10,7 +10,7 @@ public class ActaInterrogatorioDTO {
     private int id_acta;
     private String detalles;
     private LocalDate fecha;
-    private Users usuario;
+    private Usuario usuario;
     private Sospechoso sospechoso;
 
     public int getId_acta() {
@@ -37,11 +37,11 @@ public class ActaInterrogatorioDTO {
         this.fecha = fecha;
     }
 
-    public Users getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Users usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 

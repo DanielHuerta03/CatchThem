@@ -16,7 +16,7 @@ public class ActaInterrogatorioController {
 
     @Autowired
     //aS <->actaInterrogatorioService
-    IActaInterrogatorioService aS;
+    private IActaInterrogatorioService aS;
 
     @PostMapping
     public void ingresar(@RequestBody ActaInterrogatorioDTO actaInterrogatorioDTO){
