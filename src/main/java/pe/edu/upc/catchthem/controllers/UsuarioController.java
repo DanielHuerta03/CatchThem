@@ -22,7 +22,7 @@ public class UsuarioController {
         Usuario u = m.map(dto,Usuario.class);
         uS.Insert(u);
     }
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Integer id) {
         uS.eliminar(id);
     }
