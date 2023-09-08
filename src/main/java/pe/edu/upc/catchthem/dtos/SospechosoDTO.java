@@ -8,24 +8,24 @@ import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 public class SospechosoDTO {
-    private int id_sospechoso;
+    private int idSospechoso;
     private String nombre;
     private String alias;
-    private LocalDate fecha_nacimiento;
+    private LocalDate nacimiento;
     private String genero;
     private String nacionalidad;
     private String descripcion;
     private String historial;
     private String estado;
-    private LocalDate fecha_registro;
+    private LocalDate fecharegistro;
+    private Entidad entidad;
 
-
-    public int getId_sospechoso() {
-        return id_sospechoso;
+    public int getIdSospechoso() {
+        return idSospechoso;
     }
 
-    public void setId_sospechoso(int id_sospechoso) {
-        this.id_sospechoso = id_sospechoso;
+    public void setIdSospechoso(int idSospechoso) {
+        this.idSospechoso = idSospechoso;
     }
 
     public String getNombre() {
@@ -44,12 +44,12 @@ public class SospechosoDTO {
         this.alias = alias;
     }
 
-    public LocalDate getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public LocalDate getNacimiento() {
+        return nacimiento;
     }
 
-    public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setNacimiento(LocalDate nacimiento) {
+        this.nacimiento = nacimiento;
     }
 
     public String getGenero() {
@@ -92,13 +92,19 @@ public class SospechosoDTO {
         this.estado = estado;
     }
 
-    public LocalDate getFecha_registro() {
-        return fecha_registro;
+    public LocalDate getFecharegistro() {
+        return fecharegistro;
     }
 
-    public void setFecha_registro(LocalDate fecha_registro) {
-        this.fecha_registro = fecha_registro;
+    public void setFecharegistro(LocalDate fecharegistro) {
+        this.fecharegistro = fecharegistro;
     }
 
+    public Entidad getEntidad() {
+        return entidad;
+    }
 
+    public void setEntidad(Entidad entidad) {
+        this.entidad = entidad;
+    }
 }
