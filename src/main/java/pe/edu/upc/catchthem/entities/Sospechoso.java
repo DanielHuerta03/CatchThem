@@ -15,7 +15,7 @@ public class Sospechoso {
     private String alias;
     @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate nacimiento;
-    @Column(name = "genero", length = 1, nullable = false)
+    @Column(name = "genero", length = 10, nullable = false)
     private String genero;
     @Column(name = "nacionalidad", length = 20, nullable = false)
     private String nacionalidad;
@@ -23,9 +23,9 @@ public class Sospechoso {
     private String descripcion;
     @Column(name = "historial", length = 50, nullable = false)
     private String historial;
-    @Column(name = "estado", length = 1, nullable = false)
+    @Column(name = "estado", length = 15, nullable = false)
     private String estado;
-    @Column(name = "fecha_de_registro", nullable = false)
+    @Column(name = "fecha_registro", nullable = false)
     private LocalDate fecharegistro;
     @ManyToOne
     @JoinColumn(name = "id_entidad")
