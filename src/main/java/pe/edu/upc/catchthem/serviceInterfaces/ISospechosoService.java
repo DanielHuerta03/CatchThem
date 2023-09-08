@@ -18,7 +18,7 @@ public interface ISospechosoService {
     public List<Sospechoso> list();
 
     //HU31: ACCEDER A INFORMACION ESPECIFICA
-    public List<Sospechoso> findSospechosoByFecharegistro(LocalDateTime fecha);
+    public List<Sospechoso> findSospechosoByFecharegistro(LocalDate fecha);
 
     //HU30: FILTRAR SOSPECHOSO POR FECHA
     public Sospechoso findSospechosoByIdSospechoso(Integer id);
