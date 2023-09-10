@@ -17,6 +17,15 @@ public class Users implements Serializable {
 	@Column(length = 200)
 	private String password;
 	private Boolean enabled;
+	@Column(name = "nombre", length = 60, nullable = false)
+	private String nombre;
+	@Column(name = "correo", length = 60, nullable = false)
+	private String correo;
+	@Column(name = "telefono", length = 9, nullable = false)
+	private String telefono;
+	@ManyToOne
+	@JoinColumn(name = "id_entidad")
+	private Entidad entidad;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private List<Role> roles;
