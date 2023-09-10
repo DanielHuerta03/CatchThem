@@ -14,13 +14,14 @@ public class UsersServiceImplement implements IUsersService {
     @Autowired
     private UserRepository userRepository;
     @Override
-    public List<Users> listar() {
-        return userRepository.findAll();
-    }
+
     public void eliminar(Long id){
         userRepository.deleteById(id);
     }
     public void insert(Users users){
         userRepository.save(users);
+    }
+    public List<Users> listar() {
+        return userRepository.findAll();
     }
 }

@@ -22,10 +22,6 @@ public class UsersController {
         Users u = m.map(dto,Users.class);
         uS.insert(u);
     }
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long id) {
-        uS.eliminar(id);
-    }
 
     @GetMapping
     public List<UsersDTO> listar(){
@@ -34,4 +30,11 @@ public class UsersController {
             return m.map(x,UsersDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        uS.eliminar(id);
+    }
+
+
 }
