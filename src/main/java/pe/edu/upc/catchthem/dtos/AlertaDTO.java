@@ -1,41 +1,19 @@
-package pe.edu.upc.catchthem.entities;
+package pe.edu.upc.catchthem.dtos;
+
+import pe.edu.upc.catchthem.entities.Users;
 
 import java.time.LocalDate;
-import javax.persistence.*;
 
-@Entity
-@Table(name = "Alerta")
-public class Alerta {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AlertaDTO {
+
+
     private int id_alerta;
-    @Column(name = "fecha",nullable = false)
     private LocalDate fecha;
-    @Column(name = "tipo",length = 20,nullable = false)
     private String tipo;
-    @Column(name = "descripcion",length = 20,nullable = false)
     private String descripcion;
-    @Column(name = "ubicacion",length = 20,nullable = false)
     private String ubicacion;
-    @Column(name = "gravedad",length = 20,nullable = false)
     private String gravedad;
-
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
     private Users usuario;
-
-    public Alerta() {
-    }
-
-    public Alerta(int id_alerta, LocalDate fecha, String tipo, String descripcion, String ubicacion, String gravedad, Users usuario) {
-        this.id_alerta = id_alerta;
-        this.fecha = fecha;
-        this.tipo = tipo;
-        this.descripcion = descripcion;
-        this.ubicacion = ubicacion;
-        this.gravedad = gravedad;
-        this.usuario = usuario;
-    }
 
     public int getId_alerta() {
         return id_alerta;

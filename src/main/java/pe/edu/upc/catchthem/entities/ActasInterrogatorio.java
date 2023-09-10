@@ -15,7 +15,7 @@ public class ActasInterrogatorio {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    private Users usuario;
 
     @ManyToOne
     @JoinColumn(name = "id_sospechoso")
@@ -24,7 +24,7 @@ public class ActasInterrogatorio {
     public ActasInterrogatorio() {
     }
 
-    public ActasInterrogatorio(int id_acta, String detalles, LocalDate fecha, Usuario usuario, Sospechoso sospechoso) {
+    public ActasInterrogatorio(int id_acta, String detalles, LocalDate fecha, Users usuario, Sospechoso sospechoso) {
         this.id_acta = id_acta;
         this.detalles = detalles;
         this.fecha = fecha;
@@ -51,11 +51,11 @@ public class ActasInterrogatorio {
         this.fecha = fecha;
     }
 
-    public Usuario getUsuario() {
+    public Users getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(Users usuario) {
         this.usuario = usuario;
     }
 

@@ -1,34 +1,14 @@
-package pe.edu.upc.catchthem.entities;
+package pe.edu.upc.catchthem.dtos;
 
-import javax.persistence.*;
+import pe.edu.upc.catchthem.entities.TipoEntidad;
 
-@Entity
-@Table(name = "Entidad")
-public class Entidad {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+public class EntidadDTO {
     private int idEntidad;
-    @Column(name = "nombre",length = 30,nullable = false)
     private String nombre;
-    @Column(name = "direccion",length = 30,nullable = false)
     private String direccion;
-    @Column(name = "telefono",length = 9,nullable = false)
     private String telefono;
-
-    @ManyToOne
-    @JoinColumn(name = "id_tipo")
     private TipoEntidad tipoEntidad;
-
-    public Entidad() {
-    }
-
-    public Entidad(int idEntidad, String nombre, String direccion, String telefono, TipoEntidad tipoEntidad) {
-        this.idEntidad = idEntidad;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.tipoEntidad = tipoEntidad;
-    }
 
     public int getIdEntidad() {
         return idEntidad;

@@ -1,59 +1,30 @@
-package pe.edu.upc.catchthem.entities;
+package pe.edu.upc.catchthem.dtos;
 
-import javax.persistence.*;
+import pe.edu.upc.catchthem.entities.Entidad;
+
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "Sospechoso")
-public class Sospechoso {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SospechosoDTO {
     private int idSospechoso;
-    @Column(name = "nombre", length = 30, nullable = false)
     private String nombre;
-    @Column(name = "alias", length = 20, nullable = true)
     private String alias;
-    @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate nacimiento;
-    @Column(name = "genero", length = 10, nullable = false)
     private String genero;
-    @Column(name = "nacionalidad", length = 20, nullable = false)
     private String nacionalidad;
-    @Column(name = "descripcion", length = 60, nullable = false)
     private String descripcion;
-    @Column(name = "historial", length = 50, nullable = false)
     private String historial;
-    @Column(name = "estado", length = 15, nullable = false)
     private String estado;
-    @Column(name = "fecha_registro", nullable = false)
     private LocalDate fecharegistro;
-    @ManyToOne
-    @JoinColumn(name = "id_entidad")
     private Entidad entidad;
-
-    public Sospechoso() {
-
-    }
-
-    public Sospechoso(int idSospechoso, String nombre, String alias, LocalDate nacimiento, String genero, String nacionalidad, String descripcion, String historial, String estado, LocalDate fecharegistro, Entidad entidad) {
-        this.idSospechoso= idSospechoso;
-        this.nombre = nombre;
-        this.alias = alias;
-        this.nacimiento = nacimiento;
-        this.genero = genero;
-        this.nacionalidad = nacionalidad;
-        this.descripcion = descripcion;
-        this.historial = historial;
-        this.estado = estado;
-        this.fecharegistro = fecharegistro;
-        this.entidad = entidad;
-    }
 
     public int getIdSospechoso() {
         return idSospechoso;
     }
 
-    public void setId_sospechoso(int idSospechoso) {
+    public void setIdSospechoso(int idSospechoso) {
         this.idSospechoso = idSospechoso;
     }
 

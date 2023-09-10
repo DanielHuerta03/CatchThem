@@ -8,24 +8,24 @@ public class TipoEntidad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_tipo;
+    private int idTipo;
     @Column(name = "sector",length = 15,nullable = false)
     private String sector;
 
-    public TipoEntidad(int id_tipo, String sector) {
-        this.id_tipo = id_tipo;
+    public TipoEntidad(int idTipo, String sector) {
+        this.idTipo = idTipo;
         this.sector = sector;
     }
 
     public TipoEntidad() {
     }
 
-    public int getId_tipo() {
-        return id_tipo;
+    public int getIdTipo() {
+        return idTipo;
     }
 
-    public void setId_tipo(int id_tipo) {
-        this.id_tipo = id_tipo;
+    public void setIdTipo(int idTipo) {
+        this.idTipo = idTipo;
     }
 
     public String getSector() {
