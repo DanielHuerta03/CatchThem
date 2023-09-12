@@ -1,0 +1,37 @@
+package pe.edu.upc.catchthem.controllers;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.catchthem.dtos.RoleDTO;
+import pe.edu.upc.catchthem.entities.Role;
+import pe.edu.upc.catchthem.serviceInterfaces.IRoleService;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@RestController
+@RequestMapping("/role")
+public class RoleController {
+    @Autowired
+    private IRoleService rS;
+
+    @PostMapping
+    public void registrar(@RequestBody RoleDTO roleDTO){
+        ModelMapper m= new ModelMapper();
+        Role r = m.map(roleDTO,Role.class);
+        rS.ingresar(r);
+    }
+    @GetMapping
+    public List<RoleDTO> listar(){
+        return rS.listar().stream().map(x->{
+            ModelMapper m = new ModelMapper();
+            return m.map(x,RoleDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable("id") Long id){
+        rS.eliminar(id);
+    }
+}
