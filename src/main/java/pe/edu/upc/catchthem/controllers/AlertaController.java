@@ -19,7 +19,7 @@ public class AlertaController {
     private IAlertaService alertaService;
 
     @PostMapping
-    @PreAuthorize("hasRole('POLICIA')")
+    @PreAuthorize("hasRole('POLICIA') or hasRole('AGENTE')")
     public void ingresar(@RequestBody AlertaDTO alertaDTO){
         ModelMapper m=new ModelMapper();
         Alerta alerta=m.map(alertaDTO,Alerta.class);
@@ -27,7 +27,7 @@ public class AlertaController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('POLICIA')")
+    @PreAuthorize("hasRole('POLICIA') or hasRole('AGENTE')")
     public List<AlertaDTO> listar(){
         return alertaService.listar().stream().map(x->{
             ModelMapper m= new ModelMapper();

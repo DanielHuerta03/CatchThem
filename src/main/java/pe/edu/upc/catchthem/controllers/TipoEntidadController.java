@@ -18,7 +18,7 @@ public class TipoEntidadController {
     private ITipoEntidadService iTipoEntidadService;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')or hasRole('AGENTE')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void insertar(@RequestBody TipoEntidadDTO tipoEntidad){
         ModelMapper m = new ModelMapper();
         TipoEntidad t = m.map(tipoEntidad,TipoEntidad.class);
@@ -26,7 +26,7 @@ public class TipoEntidadController {
     }
 
     @PutMapping
-    @PreAuthorize("hasRole('ADMIN')or hasRole('AGENTE')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void modificar(@RequestBody TipoEntidadDTO tipoEntidad){
         ModelMapper m= new ModelMapper();
         TipoEntidad t = m.map(tipoEntidad, TipoEntidad.class);
