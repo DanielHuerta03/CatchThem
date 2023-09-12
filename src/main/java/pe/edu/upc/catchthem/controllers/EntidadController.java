@@ -20,7 +20,7 @@ public class EntidadController {
     private IEntidadService iEntidadService;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')or hasRole('AGENTE')")
     public void registrar(@RequestBody EntidadDTO entidadDTO){
         ModelMapper m= new ModelMapper();
         Entidad entidad = m.map(entidadDTO, Entidad.class);
@@ -28,7 +28,7 @@ public class EntidadController {
     }
 
     @PutMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')or hasRole('AGENTE')")
     public void modificar(@RequestBody EntidadDTO entidadDTO){
         ModelMapper m= new ModelMapper();
         Entidad entidad = m.map(entidadDTO, Entidad.class);
@@ -42,7 +42,7 @@ public class EntidadController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')or hasRole('AGENTE')")
     public List<EntidadDTO> listar(){
         return iEntidadService.list().stream().map(x->{
             ModelMapper m = new ModelMapper();

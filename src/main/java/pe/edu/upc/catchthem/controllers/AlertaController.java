@@ -19,6 +19,7 @@ public class AlertaController {
     private IAlertaService alertaService;
 
     @PostMapping
+    @PreAuthorize("hasRole('POLICIA')")
     public void ingresar(@RequestBody AlertaDTO alertaDTO){
         ModelMapper m=new ModelMapper();
         Alerta alerta=m.map(alertaDTO,Alerta.class);
@@ -26,6 +27,7 @@ public class AlertaController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('POLICIA')")
     public List<AlertaDTO> listar(){
         return alertaService.listar().stream().map(x->{
             ModelMapper m= new ModelMapper();
@@ -38,5 +40,4 @@ public class AlertaController {
     public void eliminar(@PathVariable("id") Integer id){
         alertaService.eliminar(id);
     }
-
 }
