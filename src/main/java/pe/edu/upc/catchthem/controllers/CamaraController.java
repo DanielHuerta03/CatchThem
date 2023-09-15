@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
             cS.insertar(c);
         }
         @GetMapping
-        @PreAuthorize("hasRole('POLICIA') or hasRole('AGENTE')")
+        @PreAuthorize("hasRole('AGENTE') or hasRole('POLICIA')")
         public List<CamaraDTO> listar(){
             return cS.listar().stream().map(x->{
                 ModelMapper m = new ModelMapper();
