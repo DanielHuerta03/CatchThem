@@ -8,4 +8,7 @@ public interface IEntidadService {
     public void insert(Entidad entidad);
     public void delete(int id);
     public List<Entidad> list();
+
+    public List<String[]> SospechososPorEntidad();
+
 }
