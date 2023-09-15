@@ -27,7 +27,7 @@ public class AntecedentePenalController {
         aS.insertar(ap);
     }
     @GetMapping
-    @PreAuthorize("hasRole('POLICIA')")
+    @PreAuthorize("hasRole('POLICIA') or hasRole('AGENTE')")
     public List<AntecedentePenalDTO> listar(){
         return aS.listar().stream().map(x->{
             ModelMapper m = new ModelMapper();
