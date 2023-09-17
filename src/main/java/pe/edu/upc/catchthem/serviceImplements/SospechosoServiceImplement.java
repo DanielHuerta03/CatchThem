@@ -43,4 +43,9 @@ public class SospechosoServiceImplement implements ISospechosoService {
         return iSospechosoRepository.findAllByEntidad(entidad);
     }
 
+    @Override
+    public List<String[]> AntecedentesporSospechoso() {
+        return iSospechosoRepository.AntecedentesporSospechoso();
+    }
+
 }

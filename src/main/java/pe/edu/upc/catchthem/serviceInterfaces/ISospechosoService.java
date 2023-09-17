@@ -25,5 +25,7 @@ public interface ISospechosoService {
 
     public List<Sospechoso> findAllByEntidad(Entidad entidad);
 
+    public List<String[]> AntecedentesporSospechoso();
+
 
 }
