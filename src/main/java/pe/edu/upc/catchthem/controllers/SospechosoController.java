@@ -7,13 +7,16 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.catchthem.dtos.AntecedentesporSospechosoDTO;
 import pe.edu.upc.catchthem.dtos.SospechosoDTO;
+import pe.edu.upc.catchthem.dtos.SospechosoEntidadDTO;
 import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Sospechoso;
 import pe.edu.upc.catchthem.serviceInterfaces.ISospechosoService;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -80,5 +83,19 @@ public class SospechosoController {
             ModelMapper m = new ModelMapper();
             return m.map(x,SospechosoDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/cantidadantecedentesporsospechoso")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<AntecedentesporSospechosoDTO> cantidadantecedentesporsospechoso(){
+        List<String[]> lista = iSospechosoService.AntecedentesporSospechoso();
+        List<AntecedentesporSospechosoDTO>listadto=new ArrayList<>();
+        for(String[] data:lista){
+            AntecedentesporSospechosoDTO dto =  new AntecedentesporSospechosoDTO();
+            dto.setNameSospechoso(data[0]);
+            dto.setCantidadAntecedentes(Integer.parseInt(data[1]));
+            listadto.add(dto);
+        }
+        return listadto;
     }
 }
