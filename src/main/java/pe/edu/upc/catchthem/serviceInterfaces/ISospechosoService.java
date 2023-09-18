@@ -27,5 +27,7 @@ public interface ISospechosoService {
 
     public List<String[]> AntecedentesporSospechoso();
 
+    public  List<String[]> sospechososPorNacionalidad();
+
 
 }
