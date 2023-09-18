@@ -98,4 +98,11 @@ public class SospechosoController {
         }
         return listadto;
     }
+
+    @GetMapping("/cantidadsospechososnacionalidad")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<String[]> sospechosoPorNacionalidad() {
+        List<String[]> listadto = iSospechosoService.sospechososPorNacionalidad();
+        return listadto;
+    }
 }
