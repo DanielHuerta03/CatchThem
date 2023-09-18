@@ -27,4 +27,7 @@ public interface ISospechosoRepository extends JpaRepository<Sospechoso,Integer>
             "FROM sospechoso p inner join antecedente_penal a on p.id_sospechoso = a.id_sospechoso \n" +
             "group by p.nombre" ,nativeQuery = true)
     public List<String[]> AntecedentesporSospechoso();
+
+    @Query("SELECT s.nacionalidad, COUNT(s) FROM Sospechoso s GROUP BY s.nacionalidad")
+    public List<String[]> sospechosoPorNacionalidad();
 }
