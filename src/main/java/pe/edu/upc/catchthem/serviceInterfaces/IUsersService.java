@@ -9,4 +9,6 @@ public interface IUsersService {
     public void eliminar(Long id);
     public List<Users> listar();
 
+    public List<String[]> ActasporPolicia();
+
 }

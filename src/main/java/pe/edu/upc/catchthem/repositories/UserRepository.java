@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.catchthem.entities.Users;
 
+import java.util.List;
+
 
 @Repository
 public interface UserRepository extends JpaRepository<Users, Long> {
@@ -17,6 +19,10 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     @Query("select count(u.username) from Users u where u.username =:username")
     public int buscarUsername(@Param("username") String nombre);
 
+
+    @Query(value = "select u.nombre, count(i) from users u inner join actas_interrogatorio i \n" +
+            "on i.id_usuario = u.id group by u.nombre" , nativeQuery = true)
+    public List<String[]> ActasporPolicia();
 
     //INSERTAR ROLES
     @Transactional

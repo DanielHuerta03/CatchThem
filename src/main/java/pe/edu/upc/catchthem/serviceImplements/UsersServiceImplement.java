@@ -24,4 +24,10 @@ public class UsersServiceImplement implements IUsersService {
     public List<Users> listar() {
         return userRepository.findAll();
     }
+
+    @Override
+    public List<String[]> ActasporPolicia() {
+        return userRepository.ActasporPolicia();
+    }
+
 }
