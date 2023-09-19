@@ -5,9 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.AntecedentePenalDTO;
+import pe.edu.upc.catchthem.dtos.AntecedentesPorDelitoDTO;
+import pe.edu.upc.catchthem.dtos.SospechosoPorNacionalidadDTO;
 import pe.edu.upc.catchthem.entities.AntecedentePenal;
 import pe.edu.upc.catchthem.serviceInterfaces.IAntecedentePenalService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +43,18 @@ public class AntecedentePenalController {
         aS.eliminar(id);
     }
 
-
+    @GetMapping("/DelitoPorAntecedente")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('POLICIA')")
+    public List<AntecedentesPorDelitoDTO> AntecedentesPorDelito(){
+        List<String[]> lista = aS.antecedentesPorDelito();
+        List<AntecedentesPorDelitoDTO>listadto=new ArrayList<>();
+        for(String[] data:lista){
+            AntecedentesPorDelitoDTO dto =  new AntecedentesPorDelitoDTO();
+            dto.setAntecedentesPorDelito(data[0]);
+            dto.setCantidad_antecedentes(Integer.parseInt(data[1]));
+            listadto.add(dto);
+        }
+        return listadto;
+    }
 
 }

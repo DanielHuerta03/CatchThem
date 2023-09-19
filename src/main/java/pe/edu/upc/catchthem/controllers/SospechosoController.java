@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.AntecedentesporSospechosoDTO;
 import pe.edu.upc.catchthem.dtos.SospechosoDTO;
 import pe.edu.upc.catchthem.dtos.SospechosoEntidadDTO;
+import pe.edu.upc.catchthem.dtos.SospechosoPorNacionalidadDTO;
 import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Sospechoso;
 import pe.edu.upc.catchthem.serviceInterfaces.ISospechosoService;
@@ -100,9 +101,17 @@ public class SospechosoController {
     }
 
     @GetMapping("/cantidadsospechososnacionalidad")
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public List<String[]> sospechosoPorNacionalidad() {
-        List<String[]> listadto = iSospechosoService.sospechososPorNacionalidad();
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('POLICIA')")
+    public List<SospechosoPorNacionalidadDTO> sospechosoPorNacionalidad(){
+        List<String[]> lista = iSospechosoService.sospechososPorNacionalidad();
+        List<SospechosoPorNacionalidadDTO>listadto=new ArrayList<>();
+        for(String[] data:lista){
+            SospechosoPorNacionalidadDTO dto =  new SospechosoPorNacionalidadDTO();
+            dto.setNacionalidad(data[0]);
+            dto.setPromedio(Integer.parseInt(data[1]));
+            listadto.add(dto);
+        }
         return listadto;
     }
+
 }

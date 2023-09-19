@@ -26,7 +26,7 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     public List<String[]> ActasporPolicia();
 
     @Query("SELECT u.nombre, u.correo, u.telefono FROM Users u INNER JOIN u.entidad e WHERE e.nombre = :nombreEntidad")
-    public List<Users> findAllByEntidad(@Param("entidad") Entidad entidad);
+    public List<String[]> findAllByEntidad(@Param("entidad") Entidad entidad);
 
     //INSERTAR ROLES
     @Transactional

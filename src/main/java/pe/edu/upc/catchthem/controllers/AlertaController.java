@@ -4,10 +4,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.catchthem.dtos.ActasporPoliciaDTO;
 import pe.edu.upc.catchthem.dtos.AlertaDTO;
+import pe.edu.upc.catchthem.dtos.AlertaPromedioMensualEntidadDTO;
+import pe.edu.upc.catchthem.dtos.AlertaporUbicacionDTO;
 import pe.edu.upc.catchthem.entities.Alerta;
 import pe.edu.upc.catchthem.serviceInterfaces.IAlertaService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,10 +45,32 @@ public class AlertaController {
         alertaService.eliminar(id);
     }
 
+
+
     @GetMapping("/Alertasporubicacion")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public List<String[]> CantidadAlertasPorUbicacion() {
-        List<String[]> listadto = alertaService.CantidadAlertasPorUbicacion();
+    public List<AlertaporUbicacionDTO> CantidadAlertasPorUbicacion(){
+        List<String[]> lista = alertaService.CantidadAlertasPorUbicacion();
+        List<AlertaporUbicacionDTO>listadto=new ArrayList<>();
+        for(String[] data:lista){
+            AlertaporUbicacionDTO dto =  new AlertaporUbicacionDTO();
+            dto.setUbicacion(data[0]);
+            dto.setCantidad(Integer.parseInt(data[1]));
+            listadto.add(dto);
+        }
+        return listadto;
+    }
+    @GetMapping("/PromedioAlertarPorEntidad")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<AlertaPromedioMensualEntidadDTO> cantidadActasPorPolicia(){
+        List<String[]> lista = alertaService.PromedioMensualEntidad();
+        List<AlertaPromedioMensualEntidadDTO>listadto=new ArrayList<>();
+        for(String[] data:lista){
+            AlertaPromedioMensualEntidadDTO dto =  new AlertaPromedioMensualEntidadDTO();
+            dto.setNameENTIDAD(data[0]);
+            dto.setPromedio(Integer.parseInt(data[1]));
+            listadto.add(dto);
+        }
         return listadto;
     }
 }

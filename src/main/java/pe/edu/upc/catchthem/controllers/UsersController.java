@@ -6,7 +6,9 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.ActasporPoliciaDTO;
 import pe.edu.upc.catchthem.dtos.AntecedentesporSospechosoDTO;
+import pe.edu.upc.catchthem.dtos.ListarUsuariosDTO;
 import pe.edu.upc.catchthem.dtos.UsersDTO;
+import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Users;
 import pe.edu.upc.catchthem.serviceInterfaces.IUsersService;
 
@@ -56,6 +58,21 @@ public class UsersController {
             ActasporPoliciaDTO dto =  new ActasporPoliciaDTO();
             dto.setNamePolicia(data[0]);
             dto.setCantidadActas(Integer.parseInt(data[1]));
+            listadto.add(dto);
+        }
+        return listadto;
+    }
+
+    @GetMapping("/UsuariosPorEntidad")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<ListarUsuariosDTO> UsuariosPorEntidad(@RequestBody Entidad entidad){
+        List<String[]> lista = uS.findAllByEntidad(entidad);
+        List<ListarUsuariosDTO>listadto=new ArrayList<>();
+        for(String[] data:lista){
+            ListarUsuariosDTO dto =  new ListarUsuariosDTO();
+            dto.setNombre(data[0]);
+            dto.setCorreo(data[1]);
+            dto.setTelefono(data[2]);
             listadto.add(dto);
         }
         return listadto;
