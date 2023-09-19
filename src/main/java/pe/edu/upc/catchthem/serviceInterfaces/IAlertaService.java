@@ -10,4 +10,5 @@ public interface IAlertaService {
     public List<Alerta> listar();
     public void eliminar(int idAlerta);
     public List<String[]> CantidadAlertasPorUbicacion();
+    public List<String[]> PromedioMensualEntidad();
 }
