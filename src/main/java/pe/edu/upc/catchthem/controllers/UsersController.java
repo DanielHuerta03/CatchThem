@@ -63,10 +63,10 @@ public class UsersController {
         return listadto;
     }
 
-    @GetMapping("/UsuariosPorEntidad")
+    @GetMapping("/usuariosPorEntidad")
     @PreAuthorize("hasAuthority('ADMIN')")
     public List<ListarUsuariosDTO> UsuariosPorEntidad(@RequestBody Entidad entidad){
-        List<String[]> lista = uS.findAllByEntidad(entidad);
+        List<String[]> lista = uS.findAllByEntidad(entidad.getNombre());
         List<ListarUsuariosDTO>listadto=new ArrayList<>();
         for(String[] data:lista){
             ListarUsuariosDTO dto =  new ListarUsuariosDTO();

@@ -14,6 +14,6 @@ public interface IUsersService {
 
     public void insRol(String authority, Long user_id);
 
-    public List<String[]> findAllByEntidad(Entidad entidad);
+    public List<String[]> findAllByEntidad(String entidad);
 
 }

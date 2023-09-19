@@ -37,7 +37,7 @@ public class UsersServiceImplement implements IUsersService {
     }
 
     @Override
-    public List<String[]> findAllByEntidad(Entidad entidad) {
+    public List<String[]> findAllByEntidad(String entidad) {
         return userRepository.findAllByEntidad(entidad);
     }
 }
