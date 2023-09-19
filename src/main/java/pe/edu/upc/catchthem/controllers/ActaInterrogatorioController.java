@@ -20,7 +20,7 @@ public class ActaInterrogatorioController {
     private IActaInterrogatorioService aS;
 
     @PostMapping
-    @PreAuthorize("hasRole('POLICIA')")
+    @PreAuthorize("hasAuthority('POLICIA')")
     public void ingresar(@RequestBody ActaInterrogatorioDTO actaInterrogatorioDTO){
         ModelMapper m = new ModelMapper();
         ActasInterrogatorio actasInterrogatorio=m.map(actaInterrogatorioDTO, ActasInterrogatorio.class);
@@ -28,7 +28,7 @@ public class ActaInterrogatorioController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('POLICIA') or hasRole('AGENTE')")
+    @PreAuthorize("hasAuthority('POLICIA') or hasAuthority('AGENTE')")
     public List<ActaInterrogatorioDTO> listar(){
         return aS.listar().stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -37,7 +37,7 @@ public class ActaInterrogatorioController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id){
         aS.eliminar(id);
     }

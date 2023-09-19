@@ -22,7 +22,7 @@ public class EntidadController {
     private IEntidadService iEntidadService;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody EntidadDTO entidadDTO){
         ModelMapper m= new ModelMapper();
         Entidad entidad = m.map(entidadDTO, Entidad.class);
@@ -30,7 +30,7 @@ public class EntidadController {
     }
 
     @PutMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void modificar(@RequestBody EntidadDTO entidadDTO){
         ModelMapper m= new ModelMapper();
         Entidad entidad = m.map(entidadDTO, Entidad.class);
@@ -38,13 +38,13 @@ public class EntidadController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id){
         iEntidadService.delete(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<EntidadDTO> listar(){
         return iEntidadService.list().stream().map(x->{
             ModelMapper m = new ModelMapper();

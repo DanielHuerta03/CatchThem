@@ -20,14 +20,14 @@ public class AntecedentePenalController {
     private IAntecedentePenalService aS;
 
     @PostMapping
-    @PreAuthorize("hasRole('POLICIA')")
+    @PreAuthorize("hasAuthority('POLICIA')")
     public void registrar(@RequestBody AntecedentePenalDTO antecedentePenalDTO){
         ModelMapper m= new ModelMapper();
         AntecedentePenal ap = m.map(antecedentePenalDTO,AntecedentePenal.class);
         aS.insertar(ap);
     }
     @GetMapping
-    @PreAuthorize("hasRole('POLICIA') or hasRole('AGENTE')")
+    @PreAuthorize("hasAuthority('POLICIA') or hasAuthority('AGENTE')")
     public List<AntecedentePenalDTO> listar(){
         return aS.listar().stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -35,7 +35,7 @@ public class AntecedentePenalController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Integer id){
         aS.eliminar(id);
     }

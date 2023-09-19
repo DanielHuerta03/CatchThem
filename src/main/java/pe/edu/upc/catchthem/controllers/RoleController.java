@@ -18,14 +18,14 @@ public class RoleController {
     private IRoleService rS;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody RoleDTO roleDTO){
         ModelMapper m= new ModelMapper();
         Role r = m.map(roleDTO,Role.class);
         rS.ingresar(r);
     }
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<RoleDTO> listar(){
         return rS.listar().stream().map(x->{
             ModelMapper m = new ModelMapper();
@@ -34,7 +34,7 @@ public class RoleController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void eliminar(@PathVariable("id") Long id){
         rS.eliminar(id);
     }

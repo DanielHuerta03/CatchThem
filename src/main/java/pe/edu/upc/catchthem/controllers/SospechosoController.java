@@ -36,7 +36,7 @@ public class SospechosoController {
     }
 
     @PutMapping
-    @PreAuthorize("hasRole('POLICIA')or hasRole('AGENTE')")
+    @PreAuthorize("hasAuthority('POLICIA')or hasAuthority('AGENTE')")
     public void modificar(@RequestBody SospechosoDTO sospechosoDTO){
         ModelMapper m= new ModelMapper();
         Sospechoso ap = m.map(sospechosoDTO, Sospechoso.class);
@@ -44,13 +44,13 @@ public class SospechosoController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void  delete(@PathVariable("id") Integer id){
         iSospechosoService.delete(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('POLICIA')or hasRole('AGENTE')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('POLICIA')or hasAuthority('AGENTE')")
     public List<SospechosoDTO> listar(){
         return iSospechosoService.list().stream().map(x->{
             ModelMapper m = new ModelMapper();

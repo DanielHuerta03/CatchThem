@@ -18,7 +18,7 @@ public class TipoEntidadController {
     private ITipoEntidadService iTipoEntidadService;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void insertar(@RequestBody TipoEntidadDTO tipoEntidad){
         ModelMapper m = new ModelMapper();
         TipoEntidad t = m.map(tipoEntidad,TipoEntidad.class);
@@ -26,7 +26,7 @@ public class TipoEntidadController {
     }
 
     @PutMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void modificar(@RequestBody TipoEntidadDTO tipoEntidad){
         ModelMapper m= new ModelMapper();
         TipoEntidad t = m.map(tipoEntidad, TipoEntidad.class);
@@ -34,13 +34,13 @@ public class TipoEntidadController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void  delete(@PathVariable("id") Integer id){
         iTipoEntidadService.delete(id);
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public List<TipoEntidadDTO> listar(){
         return iTipoEntidadService.list().stream().map(x->{
             ModelMapper m = new ModelMapper();

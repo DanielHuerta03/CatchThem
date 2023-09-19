@@ -19,14 +19,14 @@ import java.util.stream.Collectors;
         private ICamaraService cS;
 
         @PostMapping
-        @PreAuthorize("hasRole('POLICIA') or hasRole('AGENTE')")
+        @PreAuthorize("hasAuthority('POLICIA') or hasRole('AGENTE')")
         public void registrar(@RequestBody CamaraDTO camaraDTO){
             ModelMapper m= new ModelMapper();
             Camara c = m.map(camaraDTO,Camara.class);
             cS.insertar(c);
         }
         @GetMapping
-        @PreAuthorize("hasRole('AGENTE') or hasRole('POLICIA')")
+        @PreAuthorize("hasAuthority('AGENTE') or hasAuthority('POLICIA')")
         public List<CamaraDTO> listar(){
             return cS.listar().stream().map(x->{
                 ModelMapper m = new ModelMapper();
@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
 
         }
         @DeleteMapping("/{id}")
-        @PreAuthorize("hasRole('ADMIN')")
+        @PreAuthorize("hasAuthority('ADMIN')")
         public void eliminar(@PathVariable("id") Integer id){
             cS.eliminar(id);
         }

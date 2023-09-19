@@ -18,14 +18,14 @@ public class UsersController {
     private IUsersService uS;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody UsersDTO dto){
         ModelMapper m = new ModelMapper();
         Users u = m.map(dto,Users.class);
         uS.insert(u);
     }
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('USERS')")
     public List<UsersDTO> listar(){
         return uS.listar().stream().map(x-> {
             ModelMapper m = new ModelMapper();
@@ -33,8 +33,9 @@ public class UsersController {
         }).collect(Collectors.toList());
     }
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void delete(@PathVariable("id") Long id) {
         uS.eliminar(id);
     }
+
 }
