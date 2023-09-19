@@ -2,6 +2,7 @@ package pe.edu.upc.catchthem.serviceImplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Users;
 import pe.edu.upc.catchthem.repositories.UserRepository;
 import pe.edu.upc.catchthem.serviceInterfaces.IUsersService;
@@ -35,4 +36,8 @@ public class UsersServiceImplement implements IUsersService {
         userRepository.insRol(authority,user_id);
     }
 
+    @Override
+    public List<Users> findAllByEntidad(Entidad entidad) {
+        return userRepository.findAllByEntidad(entidad);
+    }
 }
