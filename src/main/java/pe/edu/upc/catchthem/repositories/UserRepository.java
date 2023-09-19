@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pe.edu.upc.catchthem.entities.Users;
+import pe.edu.upc.catchthem.entities.Entidad;
 
 import java.util.List;
 
@@ -23,6 +24,9 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     @Query(value = "select u.nombre, count(i) from users u inner join actas_interrogatorio i \n" +
             "on i.id_usuario = u.id group by u.nombre" , nativeQuery = true)
     public List<String[]> ActasporPolicia();
+
+    @Query("SELECT u.nombre, u.correo, u.telefono FROM Users u INNER JOIN u.entidad e WHERE e.nombre = :nombreEntidad")
+    public List<Users> findAllByEntidad(@Param("entidad") Entidad entidad);
 
     //INSERTAR ROLES
     @Transactional
