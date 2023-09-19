@@ -5,15 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.catchthem.dtos.EntidadDTO;
-import pe.edu.upc.catchthem.dtos.SospechosoDTO;
 import pe.edu.upc.catchthem.dtos.SospechosoEntidadDTO;
 import pe.edu.upc.catchthem.entities.Entidad;
-import pe.edu.upc.catchthem.entities.Sospechoso;
 import pe.edu.upc.catchthem.serviceInterfaces.IEntidadService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/entidad")
@@ -61,9 +60,52 @@ public class EntidadController {
             SospechosoEntidadDTO dto =  new SospechosoEntidadDTO();
             dto.setNamesEntidad(data[0]);
             dto.setCantidadSospechosos(Integer.parseInt(data[1]));
+
             listadto.add(dto);
         }
         return listadto;
     }
+
+    @GetMapping("/edadpromedio")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<SospechosoEntidadDTO> edadpromedioporentidad(){
+
+        List<String[]> lista = iEntidadService.ListarNacimientoSospechososPorEntidad();
+
+        List<SospechosoEntidadDTO>listadto =new ArrayList<>();
+        int edad = 0;
+
+        for(String[] data:lista){
+            SospechosoEntidadDTO dto =  new SospechosoEntidadDTO();
+            dto.setNamesEntidad(data[0]);
+            //dto.setCantidadSospechosos(Integer.parseInt(data[1]));
+            dto.setEdadpromedio(Double.parseDouble(data[1]));
+            dto.setCantidadSospechosos(Integer.parseInt(data[2]));
+
+            listadto.add(dto);
+        }
+        return listadto;
+    }
+
+    /*
+    public int promedioedad(List<String[]> list){
+
+        //List<String[]> lista = iEntidadService.SospechososPorEntidad();
+        int edad=0;
+        int edadprom=0;
+        for(String[] data:list){
+
+            LocalDate date = LocalDate.now();
+            LocalDate nacimiento = LocalDate.parse(data[1]);
+            edad = edad +  (date.getYear() - nacimiento.getYear());
+            edadprom = edad/ list.size();
+
+        }
+
+        return edadprom;
+
+    }
+    */
+
 
 }

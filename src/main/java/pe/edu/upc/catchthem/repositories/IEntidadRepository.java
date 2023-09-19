@@ -11,6 +11,14 @@ import java.util.List;
 public interface IEntidadRepository extends JpaRepository<Entidad,Integer> {
     void deleteByIdEntidad(Integer id);
 
-    @Query(value = "select e.nombre,count(s.id_sospechoso) from entidad e inner join sospechoso s on e.id_entidad = s.id_entidad group by e.nombre" ,nativeQuery = true)
+    @Query(value = "select e.nombre, count(s.id_sospechoso) from entidad e join sospechoso s on e.id_entidad = s.id_entidad group by e.nombre" ,nativeQuery = true)
     public List<String[]> SospechososPorEntidad();
+
+    @Query(value = "SELECT e.nombre, \n" +
+            "       AVG(EXTRACT(YEAR FROM age(CURRENT_DATE, s.fecha_nacimiento))) AS edad_promedio,\n" +
+            "\t   COUNT(*) AS cantidad_sospechosos\n" +
+            "FROM entidad e\n" +
+            "JOIN sospechoso s ON e.id_entidad = s.id_entidad\n" +
+            "GROUP BY e.nombre;" ,nativeQuery = true)
+    public List<String[]> ListarNacimientoSospechososPorEntidad();
 }

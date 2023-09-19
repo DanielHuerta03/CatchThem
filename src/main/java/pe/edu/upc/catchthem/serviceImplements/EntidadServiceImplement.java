@@ -33,5 +33,10 @@ public class EntidadServiceImplement implements IEntidadService {
         return iEntidadRepository.SospechososPorEntidad();
     }
 
+    @Override
+    public List<String[]> ListarNacimientoSospechososPorEntidad() {
+        return iEntidadRepository.ListarNacimientoSospechososPorEntidad();
+    }
+
 
 }
