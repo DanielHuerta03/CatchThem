@@ -6,6 +6,10 @@ public class SospechosoEntidadDTO {
 
     private int cantidadSospechosos;
 
+    private Double edadPromedio;
+
+
+
     public String getNamesEntidad() {
         return namesEntidad;
     }
@@ -20,5 +24,13 @@ public class SospechosoEntidadDTO {
 
     public void setCantidadSospechosos(int cantidadSospechosos) {
         this.cantidadSospechosos = cantidadSospechosos;
+    }
+
+    public Double getEdadPromedio() {
+        return edadPromedio;
+    }
+
+    public void setEdadPromedio(Double edadPromedio) {
+        this.edadPromedio = edadPromedio;
     }
 }

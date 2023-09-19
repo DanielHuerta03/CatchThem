@@ -79,7 +79,7 @@ public class EntidadController {
             SospechosoEntidadDTO dto =  new SospechosoEntidadDTO();
             dto.setNamesEntidad(data[0]);
             //dto.setCantidadSospechosos(Integer.parseInt(data[1]));
-            dto.setEdadpromedio(Double.parseDouble(data[1]));
+            dto.setEdadPromedio(Double.parseDouble(data[1]));
             dto.setCantidadSospechosos(Integer.parseInt(data[2]));
 
             listadto.add(dto);
