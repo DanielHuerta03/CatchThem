@@ -33,4 +33,9 @@ public class AlertaServiceImplement implements IAlertaService {
     public List<String[]> CantidadAlertasPorUbicacion() {
         return aR.CantidadAlertasPorUbicacion();
     }
+
+    @Override
+    public List<String[]> PromedioMensualEntidad() {
+        return aR.PromedioMensualEntidad();
+    }
 }
