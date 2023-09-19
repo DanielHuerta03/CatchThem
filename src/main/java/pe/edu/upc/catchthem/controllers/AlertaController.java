@@ -40,4 +40,11 @@ public class AlertaController {
     public void eliminar(@PathVariable("id") Integer id){
         alertaService.eliminar(id);
     }
+
+    @GetMapping("/Alertasporubicacion")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<String[]> CantidadAlertasPorUbicacion() {
+        List<String[]> listadto = alertaService.CantidadAlertasPorUbicacion();
+        return listadto;
+    }
 }

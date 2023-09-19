@@ -48,4 +48,8 @@ public class SospechosoServiceImplement implements ISospechosoService {
         return iSospechosoRepository.AntecedentesporSospechoso();
     }
 
+    @Override
+    public List<String[]> sospechososPorNacionalidad() {
+        return iSospechosoRepository.sospechosoPorNacionalidad();
+    }
 }
