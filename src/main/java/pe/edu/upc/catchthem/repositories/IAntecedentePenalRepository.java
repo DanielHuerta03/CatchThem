@@ -10,4 +10,9 @@ import java.util.List;
 public interface IAntecedentePenalRepository extends JpaRepository<AntecedentePenal,Integer> {
 
     List<AntecedentePenal> findAntecedentePenalBySospechoso(Integer id_sospechoso);
+
+    @Query("SELECT " + "SPLIT_PART(a.delito, ' - ', 1) AS delito_comun, " +
+            "COUNT(*) AS cantidad_antecedentes " + "FROM " + "AntecedentePenal a " +
+            "GROUP BY " + "delito_comun " + "ORDER BY " + "cantidad_antecedentes DESC")
+    List<String[]> antecedentesPorDelito();
 }
