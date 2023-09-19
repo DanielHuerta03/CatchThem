@@ -11,4 +11,6 @@ public interface IUsersService {
 
     public List<String[]> ActasporPolicia();
 
+    public void insRol(String authority, Long user_id);
+
 }

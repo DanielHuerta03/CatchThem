@@ -41,6 +41,12 @@ public class UsersController {
         uS.eliminar(id);
     }
 
+    @PostMapping("/insertarrol")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void insertarRol(@RequestParam("authority") String authority,@RequestParam("user_id") Long user_id){
+        uS.insRol(authority,user_id);
+    }
+
     @GetMapping("/cantidadActasPorPolicia")
     @PreAuthorize("hasAuthority('ADMIN')")
     public List<ActasporPoliciaDTO> cantidadActasPorPolicia(){

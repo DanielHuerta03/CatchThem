@@ -30,4 +30,9 @@ public class UsersServiceImplement implements IUsersService {
         return userRepository.ActasporPolicia();
     }
 
+    @Override
+    public void insRol(String authority, Long user_id) {
+        userRepository.insRol(authority,user_id);
+    }
+
 }
