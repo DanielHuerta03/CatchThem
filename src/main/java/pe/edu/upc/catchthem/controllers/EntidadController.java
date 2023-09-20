@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.catchthem.dtos.EntidadCamarasDTO;
 import pe.edu.upc.catchthem.dtos.EntidadDTO;
 import pe.edu.upc.catchthem.dtos.SospechosoEntidadDTO;
 import pe.edu.upc.catchthem.entities.Entidad;
@@ -86,6 +87,24 @@ public class EntidadController {
         }
         return listadto;
     }
+
+    @GetMapping("/cantidadcamaras")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public List<EntidadCamarasDTO> cantidadcamaras(){
+        List<String[]> lista = iEntidadService.cantidadCamarasporEntidad();
+        List<EntidadCamarasDTO>listadto=new ArrayList<>();
+        for(String[] data:lista){
+            EntidadCamarasDTO dto =  new EntidadCamarasDTO();
+            dto.setNombreEntidad(data[0]);
+            dto.setSector(data[1]);
+            dto.setCantidadCamaras(Integer.parseInt(data[2]));
+
+            listadto.add(dto);
+        }
+        return listadto;
+    }
+
+
 
     /*
     public int promedioedad(List<String[]> list){

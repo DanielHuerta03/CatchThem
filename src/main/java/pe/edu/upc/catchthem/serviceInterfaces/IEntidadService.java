@@ -12,5 +12,6 @@ public interface IEntidadService {
     public List<String[]> SospechososPorEntidad();
 
     public List<String[]> ListarNacimientoSospechososPorEntidad();
+    public List<String[]> cantidadCamarasporEntidad();
 
 }
