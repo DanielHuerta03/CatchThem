@@ -12,7 +12,6 @@ public class AntecedentePenalDTO {
     private LocalDate fecha_condena;
     private String sentencia;
     private String ubicacion;
-    private String tipo_delito;
     private String estado;
     private Sospechoso sospechoso;
 
@@ -62,14 +61,6 @@ public class AntecedentePenalDTO {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
-    }
-
-    public String getTipo_delito() {
-        return tipo_delito;
-    }
-
-    public void setTipo_delito(String tipo_delito) {
-        this.tipo_delito = tipo_delito;
     }
 
     public String getEstado() {
