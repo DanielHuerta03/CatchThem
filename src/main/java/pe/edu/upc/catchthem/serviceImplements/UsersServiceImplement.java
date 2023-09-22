@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class UsersServiceImplement implements IUsersService {
-    
+
     @Autowired
     private UserRepository userRepository;
     @Override
@@ -39,5 +39,10 @@ public class UsersServiceImplement implements IUsersService {
     @Override
     public List<String[]> findAllByEntidad(String entidad) {
         return userRepository.findAllByEntidad(entidad);
+    }
+
+    @Override
+    public Users findUsersByCorreo(String email) {
+        return userRepository.findUsersByCorreo(email);
     }
 }

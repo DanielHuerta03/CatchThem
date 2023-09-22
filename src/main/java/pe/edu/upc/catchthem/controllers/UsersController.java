@@ -4,10 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.catchthem.dtos.ActasporPoliciaDTO;
-import pe.edu.upc.catchthem.dtos.AntecedentesporSospechosoDTO;
-import pe.edu.upc.catchthem.dtos.ListarUsuariosDTO;
-import pe.edu.upc.catchthem.dtos.UsersDTO;
+import pe.edu.upc.catchthem.dtos.*;
 import pe.edu.upc.catchthem.entities.Entidad;
 import pe.edu.upc.catchthem.entities.Users;
 import pe.edu.upc.catchthem.serviceInterfaces.IUsersService;
@@ -76,5 +73,13 @@ public class UsersController {
             listadto.add(dto);
         }
         return listadto;
+    }
+
+    @GetMapping("/BusquedaporCorreo")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public UsersDTO buscarporcorreo(@RequestParam("email") String email){
+        ModelMapper m = new ModelMapper();
+        UsersDTO s = m.map(uS.findUsersByCorreo(email),UsersDTO.class);
+        return s;
     }
 }

@@ -16,4 +16,6 @@ public interface IUsersService {
 
     public List<String[]> findAllByEntidad(String entidad);
 
+    Users findUsersByCorreo(String email);
+
 }
