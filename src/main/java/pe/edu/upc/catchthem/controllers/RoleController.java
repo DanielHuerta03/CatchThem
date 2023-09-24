@@ -18,7 +18,6 @@ public class RoleController {
     private IRoleService rS;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
     public void registrar(@RequestBody RoleDTO roleDTO){
         ModelMapper m= new ModelMapper();
         Role r = m.map(roleDTO,Role.class);
