@@ -82,4 +82,9 @@ public class UsersController {
         UsersDTO s = m.map(uS.findUsersByCorreo(email),UsersDTO.class);
         return s;
     }
+
+    @GetMapping("/saludo")
+    public String saludar() {
+        return "Hola, Usuario!";
+    }
 }
