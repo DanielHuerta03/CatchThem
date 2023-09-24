@@ -25,6 +25,10 @@ public class UsersController {
         Users u = m.map(dto,Users.class);
         uS.insert(u);
     }
+    @GetMapping("/saludo")
+    public String saludar() {
+        return "Hola, usuario!";
+    }
     @GetMapping
     @PreAuthorize("hasAuthority('ADMIN')")
     public List<UsersDTO> listar(){
