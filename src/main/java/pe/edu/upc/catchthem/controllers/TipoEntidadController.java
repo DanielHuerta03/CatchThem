@@ -24,7 +24,7 @@ public class TipoEntidadController {
         TipoEntidad t = m.map(tipoEntidad,TipoEntidad.class);
         iTipoEntidadService.insert(t);
     }
-
+/* xd */
     @PutMapping
     @PreAuthorize("hasAuthority('ADMIN')")
     public void modificar(@RequestBody TipoEntidadDTO tipoEntidad){
