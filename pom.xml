@@ -11,7 +11,7 @@
     <groupId>pe.edu.upc</groupId>
     <artifactId>CatchThem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>CatchThem</name>
     <description>CatchThem</description>
     <properties>
@@ -19,18 +19,6 @@
     </properties>
     <dependencies>
 
-        <!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
-        <dependency>
-            <groupId>org.modelmapper</groupId>
-            <artifactId>modelmapper</artifactId>
-            <version>3.1.1</version>
-        </dependency>
-        <!--se escogio swagger para documentar la API... por eso se usa esta dependencia -->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.6.4</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

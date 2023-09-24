@@ -27,4 +27,21 @@ public class EntidadServiceImplement implements IEntidadService {
     public List<Entidad> list() {
         return iEntidadRepository.findAll();
     }
+
+    @Override
+    public List<String[]> SospechososPorEntidad() {
+        return iEntidadRepository.SospechososPorEntidad();
+    }
+
+    @Override
+    public List<String[]> ListarNacimientoSospechososPorEntidad() {
+        return iEntidadRepository.ListarNacimientoSospechososPorEntidad();
+    }
+
+    @Override
+    public List<String[]> cantidadCamarasporEntidad() {
+        return iEntidadRepository.cantidadCamarasporEntidad();
+    }
+
+
 }

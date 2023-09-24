@@ -20,8 +20,6 @@ public class AntecedentePenal{
     private String sentencia;
     @Column(name = "ubicacion",length = 40,nullable = false)
     private String ubicacion;
-    @Column(name = "tipo_delito",length = 40,nullable = false)
-    private String tipo_delito;
     @Column(name = "estado",length = 40,nullable = false)
     private String estado;
 
@@ -29,14 +27,13 @@ public class AntecedentePenal{
     @JoinColumn(name = "id_sospechoso")
     private Sospechoso sospechoso;
 
-    public AntecedentePenal(int id_antecedente, String delito, LocalDate fecha_comision, LocalDate fecha_condena, String sentencia, String ubicacion, String tipo_delito, String estado, Sospechoso sospechoso) {
+    public AntecedentePenal(int id_antecedente, String delito, LocalDate fecha_comision, LocalDate fecha_condena, String sentencia, String ubicacion, String estado, Sospechoso sospechoso) {
         this.id_antecedente = id_antecedente;
         this.delito = delito;
         this.fecha_comision = fecha_comision;
         this.fecha_condena = fecha_condena;
         this.sentencia = sentencia;
         this.ubicacion = ubicacion;
-        this.tipo_delito = tipo_delito;
         this.estado = estado;
         this.sospechoso = sospechoso;
     }
@@ -98,14 +95,6 @@ public class AntecedentePenal{
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
-    }
-
-    public String getTipo_delito() {
-        return tipo_delito;
-    }
-
-    public void setTipo_delito(String tipo_delito) {
-        this.tipo_delito = tipo_delito;
     }
 
     public String getEstado() {

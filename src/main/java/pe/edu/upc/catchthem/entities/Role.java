@@ -14,12 +14,12 @@ public class Role implements Serializable {
 	private Long id;
 
 	private String rol;
-	
+
 	@ManyToOne
 	@JoinColumn(name="user_id", nullable=false)
 	private Users user;
-	
-	
+
+
 	//GETTERS AND SETTERES
 
 	public Users getUser() {

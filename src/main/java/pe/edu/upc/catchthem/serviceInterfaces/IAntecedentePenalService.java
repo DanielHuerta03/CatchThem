@@ -10,6 +10,6 @@ public interface IAntecedentePenalService {
     public List<AntecedentePenal> listar();
     public void eliminar(int idAntecedente);
 
-
+    List<String[]> antecedentesPorDelito();
 
 }

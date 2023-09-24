@@ -29,5 +29,7 @@ public class AntecedentePenalServiceImplement implements IAntecedentePenalServic
         aR.deleteById(idAntecedente);
     }
 
-
+    public List<String[]> antecedentesPorDelito() {
+        return aR.antecedentesPorDelito();
+    }
 }

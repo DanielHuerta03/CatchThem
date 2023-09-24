@@ -17,9 +17,66 @@ public class Users implements Serializable {
 	@Column(length = 200)
 	private String password;
 	private Boolean enabled;
+	@Column(name = "nombre", length = 60, nullable = false)
+	private String nombre;
+	@Column(name = "correo", length = 60, nullable = false)
+	private String correo;
+	@Column(name = "telefono", length = 9, nullable = false)
+	private String telefono;
+	@ManyToOne
+	@JoinColumn(name = "id_entidad")
+	private Entidad entidad;
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private List<Role> roles;
+
+
+	public Users() {
+	}
+
+	public Users(Long id, String username, String password, Boolean enabled, String nombre, String correo, String telefono, Entidad entidad, List<Role> roles) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.nombre = nombre;
+		this.correo = correo;
+		this.telefono = telefono;
+		this.entidad = entidad;
+		this.roles = roles;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public Entidad getEntidad() {
+		return entidad;
+	}
+
+	public void setEntidad(Entidad entidad) {
+		this.entidad = entidad;
+	}
 
 	public Long getId() {
 		return id;

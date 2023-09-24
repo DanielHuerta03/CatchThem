@@ -28,4 +28,14 @@ public class AlertaServiceImplement implements IAlertaService {
     public void eliminar(int idAlerta) {
         aR.deleteById(idAlerta);
     }
+
+    @Override
+    public List<String[]> CantidadAlertasPorUbicacion() {
+        return aR.CantidadAlertasPorUbicacion();
+    }
+
+    @Override
+    public List<String[]> PromedioMensualEntidad() {
+        return aR.PromedioMensualEntidad();
+    }
 }
